@@ -1,9 +1,6 @@
 package com.example.demo.model;
 import java.util.List;
 import javax.persistence.*;
-//import lombok.Data;
-
-//@Data
 
 @Entity
 @Table(name = "Conseillers")
