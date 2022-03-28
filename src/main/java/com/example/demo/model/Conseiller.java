@@ -3,6 +3,7 @@ import java.util.List;
 
 import javax.persistence.*;
 import lombok.Data;
+import lombok.Getter;
 @Data
 @Entity
 @Table(name = "Conseillers")
