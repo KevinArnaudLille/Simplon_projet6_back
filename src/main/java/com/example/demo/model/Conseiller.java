@@ -1,4 +1,6 @@
 package com.example.demo.model;
+import java.util.List;
+
 import javax.persistence.*;
 import lombok.Data;
 @Data
@@ -17,6 +19,6 @@ public class Conseiller {
 	@Column(name = "mot_de_passe")
 	private String mot_de_passe;
 	
-//	@OneToMany(mappedBy = "client")
-//	private Client client;
+	@OneToMany(targetEntity = Conseiller.class)
+	private List clientList;
 }
