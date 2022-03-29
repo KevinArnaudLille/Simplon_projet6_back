@@ -29,6 +29,7 @@ public class ConseillerController {
 			return conseillerService.getConseillers();
 	}
 	
+<<<<<<< HEAD
 	@SuppressWarnings("unchecked")
 	@PostMapping("/conseiller")
 		public Iterable<Conseiller> getConseillers(@RequestBody Conseiller conseiller) throws Exception{
@@ -62,3 +63,6 @@ public class ConseillerController {
 //	}
 	
 }
+=======
+}
+>>>>>>> 782998434001c2f9070cfe631e00db2480c3bf31
