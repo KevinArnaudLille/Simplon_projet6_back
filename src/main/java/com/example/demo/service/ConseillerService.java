@@ -37,10 +37,4 @@ public class ConseillerService {
 		Conseiller savedConseiller = conseillerRepository.save(conseiller);
 		return savedConseiller;
 	}
-<<<<<<< HEAD
-
-	
 }
-=======
-}
->>>>>>> 782998434001c2f9070cfe631e00db2480c3bf31
