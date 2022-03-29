@@ -21,7 +21,15 @@ public class ConseillerService {
 		return conseillerRepository.findById(id);
 	}
 	
+	public Optional<Conseiller> getConseillerID(Long id){
+		return conseillerRepository.findById(id);
+	}
+	
 	public Iterable<Conseiller> getConseillers(){
+		return conseillerRepository.findAll();
+	}
+	
+	public Iterable<Conseiller> getConseillersBy(){
 		return conseillerRepository.findAll();
 	}
 	
@@ -29,4 +37,6 @@ public class ConseillerService {
 		Conseiller savedConseiller = conseillerRepository.save(conseiller);
 		return savedConseiller;
 	}
+
+	
 }

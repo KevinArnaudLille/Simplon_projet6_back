@@ -1,8 +1,13 @@
 package com.example.demo.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,5 +28,37 @@ public class ConseillerController {
 		public Iterable<Conseiller> getConseillers(){
 			return conseillerService.getConseillers();
 	}
+	
+	@SuppressWarnings("unchecked")
+	@PostMapping("/conseiller")
+		public Iterable<Conseiller> getConseillers(@RequestBody Conseiller conseiller) throws Exception{
+		String tempIdentifiant = conseiller.getIdentifiant();
+		String tempMDP = conseiller.getMot_de_passe();
+		Iterable<Conseiller> conseillerOBJ = null;
+		if(tempIdentifiant != null && tempMDP != null) {
+			conseillerOBJ = conseillerService.getConseillersBy();
+		}
+		return (Iterable<Conseiller>) conseillerOBJ;
+	}
+	
+	@GetMapping("/conseiller/{id}")
+	public Optional<Conseiller> getConseillerID(@PathVariable long id){
+		return conseillerService.getConseillerID(id);
+	}
+	
+	
+//	@PostMapping("/conseiller")
+//	public Conseiller loginConseiller(@RequestBody Conseiller conseiller) throws Exception {
+//		String tempIdentifiant = conseiller.getIdentifiant();
+//		String tempMDP = conseiller.getMot_de_passe();
+//		Conseiller conseillerOBJ = null;
+//		if(tempIdentifiant != null && tempMDP != null) {
+//			conseillerOBJ = conseillerService.getConseiller(tempIdentifiant, tempMDP);
+//		}
+//		if(conseillerOBJ == null) {
+//			throw new Exception("Bad credentials");
+//		}
+//		return conseillerOBJ;
+//	}
 	
 }

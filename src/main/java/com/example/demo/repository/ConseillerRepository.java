@@ -7,4 +7,5 @@ import com.example.demo.model.Conseiller;
 
 @Repository
 public interface ConseillerRepository extends CrudRepository<Conseiller, Long> {
+	
 }
