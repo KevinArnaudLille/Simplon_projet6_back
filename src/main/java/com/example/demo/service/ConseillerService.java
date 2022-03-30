@@ -29,8 +29,12 @@ public class ConseillerService {
 		return conseillerRepository.findAll();
 	}
 	
-	public Iterable<Conseiller> getConseillersBy(){
-		return conseillerRepository.findAll();
+//	public Iterable<Conseiller> getConseillersBy(){
+//		return conseillerRepository.findAll();
+//	}
+	
+	public Optional<Conseiller> getConseillerWithIdAndPassword(String tempIdentifiant, String tempMDP){
+		return conseillerRepository.getConseillerWithIdAndPassword(tempIdentifiant, tempMDP);
 	}
 	
 	public Conseiller saveConseiller(Conseiller conseiller) {

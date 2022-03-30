@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Conseiller;
@@ -24,22 +25,22 @@ public class ConseillerController {
 	/**
 	 * Read - Get all Conseiller
 	 */
-	@GetMapping("/conseiller")
-		public Iterable<Conseiller> getConseillers(){
-			return conseillerService.getConseillers();
-	}
+//	@GetMapping("/conseiller")
+//		public Iterable<Conseiller> getConseillers(){
+//			return conseillerService.getConseillers();
+//	}
 	
 
-	@SuppressWarnings("unchecked")
-	@PostMapping("/conseiller")
-		public Iterable<Conseiller> getConseillers(@RequestBody Conseiller conseiller) throws Exception{
-		String tempIdentifiant = conseiller.getIdentifiant();
-		String tempMDP = conseiller.getMot_de_passe();
-		Iterable<Conseiller> conseillerOBJ = null;
-		if(tempIdentifiant != null && tempMDP != null) {
-			conseillerOBJ = conseillerService.getConseillersBy();
-		}
-		return (Iterable<Conseiller>) conseillerOBJ;
+//	@PostMapping("/conseiller")
+	@RequestMapping(value = "/conseiller")
+		public Optional<Conseiller> getConseillerWithIdAndPassword(
+				@RequestParam("login") String tempIdentifiant,
+				@RequestParam("mdp") String tempMDP
+				) throws Exception{
+//		if(tempIdentifiant != null && tempMDP != null) {
+//			conseillerOBJ = conseillerService.getConseillersBy();
+//		}
+		return conseillerService.getConseillerWithIdAndPassword(tempIdentifiant, tempMDP);
 	}
 	
 	@GetMapping("/conseiller/{id}")
